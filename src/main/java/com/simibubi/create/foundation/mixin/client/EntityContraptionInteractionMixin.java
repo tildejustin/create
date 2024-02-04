@@ -5,7 +5,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
+import com.llamalad7.mixinextras.injector.WrapWithCondition;
 import com.simibubi.create.content.contraptions.OrientedContraptionEntity;
 
 import org.apache.commons.lang3.mutable.MutableBoolean;
@@ -173,6 +173,7 @@ public abstract class EntityContraptionInteractionMixin {
 		});
 	}
 
+	// using v1 for compatibility with earlier fabric loader releases
 	@WrapWithCondition(method = "baseTick", at = @At(value = "FIELD", target = "Lnet/minecraft/world/entity/Entity;xRotO:F"))
 	private boolean create$contraptionSetsOwnXRotO(Entity instance, float xRotO) {
         return !(instance instanceof OrientedContraptionEntity);
